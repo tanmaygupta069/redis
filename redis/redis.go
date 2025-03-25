@@ -19,6 +19,7 @@ type RedisInterface interface {
 	Delete(key string) (int64, error)
 	Exists(key string) (int64, error)
 	Decrement(key string, field string) (int64, error)
+	SetNx(key string, value string) (bool, error)
 }
 
 type RedisImplementation struct {
@@ -57,4 +58,8 @@ func (r *RedisImplementation) Exists(key string) (int64, error) {
 
 func (r *RedisImplementation) Decrement(key string, field string) (int64, error) {
 	return r.redisClient.HIncrBy(context.Background(), key, field, -1).Result()
+}
+
+func (r *RedisImplementation) SetNx(key string, value string) (bool, error) {
+	return r.redisClient.SetNX(context.Background(), key, value, 0).Result()
 }

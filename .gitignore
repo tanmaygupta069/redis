@@ -1,0 +1,33 @@
+# Ignore Go build artifacts
+/bin/
+/pkg/
+
+# Ignore Go modules
+/go.sum
+/go.mod
+
+# Ignore compiled binaries
+*.exe
+*.out
+*.a
+*.o
+*.so
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.iml
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore environment and configuration files
+.env
+config.yaml
+readme.md
